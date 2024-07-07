@@ -79,3 +79,19 @@ def main():
     print("Thank you for playing!")
 if "__main__" == __name__:
     main()
+
+# This part is for the question of the program
+# The answer codes file is in the book folder
+'''
+1. The number of digits will be changed according to the value
+2. Same as question 1, you can have as many guesses as you want
+3. When larger than 10, the code resulted in string out of range
+since the list only have from 0 to 10 (10 numbers)
+4. The answer will be hard-coded '123'
+5. UnboundLocalError: The variable does not have any value to begin with
+6. No shuffle means the list will stay the same, means the secret number
+would be '012'
+7. The code would still run fine, just not prompt the players that
+they answer right.
+8. The loop will run till you get the right answer a.k.a unlimited guesses
+'''
