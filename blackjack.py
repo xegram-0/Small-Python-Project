@@ -90,6 +90,17 @@ def getBet(maxBet):
         if 1 <= bet <= maxBet:
             return bet
 
+def getDeck():
+    deck = []
+    for suit in (HEARTS, DIAMONDS, SPADES, CLUBS):
+        for rank in range(2,11):
+            deck.append((str(rank),suit))
+        for rank in ('J','Q','K','A'):
+            deck.append((rank,suit))
+    random.shuffle(deck)
+    return deck
+
+
 
 
 if "__main__"==__name__:
