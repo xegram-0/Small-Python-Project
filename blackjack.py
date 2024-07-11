@@ -140,7 +140,7 @@ def displayCards(cards):
             rows[3] += '|_##| '
         else:
             rank, suit = card
-            rows[1] += f'|{rank} | '
+            rows[1] += f'|{rank}  | '
             rows[2] += f'| {suit} | '
             rows[3] += f'|_{rank}_| '
     for row in rows:
