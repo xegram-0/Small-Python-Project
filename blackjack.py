@@ -8,7 +8,7 @@ BACKSIDE = "backside"
 
 def main():
 
-    money = int(input("How much money you want to play?"))
+    money = int(input("Insert your money: $ "))
     while True:
         if money <= 0:
             print("No money left!")
@@ -133,22 +133,22 @@ def getHandValue(cards):
 def displayCards(cards):
     rows = ['','','','','']
     for i, card in enumerate(cards):
-        rows[0] +='____ '
+        rows[0] += ' ___  '
         if card == BACKSIDE:
             rows[1] += '|## | '
             rows[2] += '|###| '
             rows[3] += '|_##| '
         else:
             rank, suit = card
-            rows[1] += f'|{rank}  | '
-            rows[2] += f'| {suit} | '
-            rows[3] += f'|_{rank}_| '
+            rows[1] += '|{} |'.format(rank.ljust(2))
+            rows[2] += '| {} |'.format(suit)
+            rows[3] += '|_{}|'.format(rank.rjust(2,'_'))
     for row in rows:
         print(row)
     
 def getMove(playerHand,money):
     while True:
-        move = ['(H)it','(S)tand']
+        moves = ['(H)it','(S)tand']
 
         if len(playerHand) == 2 and money > 0:
             moves.append('(D)ouble down')
