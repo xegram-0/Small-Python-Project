@@ -75,5 +75,22 @@ def main():
             input("Enter to continue")
             print("\n\n")
 
+def getBet(maxBet):
+    while True:
+        print(f"How much do you bet? (1-{maxBet} or QUIT)")
+        bet = input("> ").upper().strip()
+        if bet == 'QUIT':
+            print("Bye bye!")
+            sys.exit()
+
+        if not bet.isdecimal():
+            continue
+        
+        bet = int(bet)
+        if 1 <= bet <= maxBet:
+            return bet
+
+
+
 if "__main__"==__name__:
     main()
