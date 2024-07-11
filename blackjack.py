@@ -163,3 +163,21 @@ def getMove(playerHand,money):
 
 if "__main__"==__name__:
     main()
+
+"""
+1. Insead of a fix amount, use input to enter the player desired amount.
+2. Using condition in the getBet(): The player can only input the amount that
+they entered before and the condition in the code restricts any amount above the maxBet.
+3. Card = (rank,suit)
+4. Cards = [(rank_1,suit_1),(rank_2,suit_2)]
+5. Each string of rows list display parts of the cards.
+With each string, there will be a line break and each row will
+have parts of the cards.
+6. The deck would be predictable starting with the first value 
+we coded.
+7. The player will get money even if they lost the game.
+8. showDealerHand is used to display dealer hand on condition.
+True when we get the result and stay False when we play.
+If we set to either True or False value, the 1st card of the dealer would
+stay either reveal or hidden during the entire game.
+"""
