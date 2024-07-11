@@ -128,6 +128,7 @@ def getHandValue(cards):
     for i in range(numberofAces):
         if value + 10 <=21:
             value += 10
+    return value
     
 def displayCards(cards):
     rows = ['','','','','']
@@ -144,7 +145,7 @@ def displayCards(cards):
             rows[3] += f'|_{rank}_| '
     for row in rows:
         print(row)
-    return value
+    
 
 
 
