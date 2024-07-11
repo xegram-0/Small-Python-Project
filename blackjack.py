@@ -129,7 +129,21 @@ def getHandValue(cards):
         if value + 10 <=21:
             value += 10
     
-
+def displayCards(cards):
+    rows = ['','','','','']
+    for i, card in enumerate(cards):
+        rows[0] +='____ '
+        if card == BACKSIDE:
+            rows[1] += '|## | '
+            rows[2] += '|###| '
+            rows[3] += '|_##| '
+        else:
+            rank, suit = card
+            rows[1] += f'|{rank} | '
+            rows[2] += f'| {suit} | '
+            rows[3] += f'|_{rank}_| '
+    for row in rows:
+        print(row)
     return value
 
 
