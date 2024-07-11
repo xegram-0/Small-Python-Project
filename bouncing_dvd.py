@@ -23,3 +23,4 @@ COLOR = 'color'
 X = 'x'
 Y = 'y'
 DIR = 'direction'
+
