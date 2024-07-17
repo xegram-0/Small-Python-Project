@@ -3,7 +3,7 @@ try:
 except ImportError:
     pass
 
-SYMBOLS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+SYMBOLS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 def main():
 
     while True:
@@ -30,7 +30,6 @@ def main():
 
     print(f"Enter the message you want to {mode}")
     message = input("> ").upper()
-    # message = meassage.upper()
 
     translated = ''
 
@@ -48,6 +47,7 @@ def main():
                 num = num + len(SYMBOLS)
 
             translated = translated + SYMBOLS[num]
+            # translated = translated + symbol
         else:
             translated = translated + symbol
     print(translated)
@@ -59,4 +59,10 @@ def main():
         pass
 if __name__ == "__main__":
     main()
-
+"""
+1. Then the encrypted/decrypted message would only be presented in "ABC".
+2. There would be 0 shifts and it means it stays the same.
+3. UnboundLocalError
+4. NameError: key is not defined
+5. The translated message would stay the same since there is no shift in its message.
+"""
