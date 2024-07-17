@@ -16,4 +16,9 @@ for key in range(len(SYMBOLS)):
         else:
             translated = translated + symbol
     print(f"Key #{key}: {translated}")
-
+"""
+1. NameError: translated is not defined.
+2. The symbol would not be translated.
+3. It would produce a number of encrypted messages based on the number of characters in SYMBOLS.
+It would be a miracle if this creates another meaningful word.
+"""
