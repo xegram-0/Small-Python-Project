@@ -115,3 +115,10 @@ def main():
 
 if __name__ == "__main__":
     main()
+"""
+1. By changing the contents of the MONTHS tuples.
+2. ValueError, the program thinks the year = 0.
+3. By removing the calText += '...Sunday.....Monday....Tuesday...Wednesday...Thursday....Friday....Saturday..\n'
+4. By removing the codes that save file or like what I did, choices.
+5. No calendar is printed in the terminal but it is saved in the file.
+"""
