@@ -84,7 +84,7 @@ while True:
         print("Please type YES or NO to continue the game.")
         continue
 
-firstBox: str = "RED"
+firstBox: str = "RED "
 secondBox: str = "BLUE"
 # Where the swapping happens if Y is the input
 if response.startswith("Y"):
@@ -136,3 +136,9 @@ if isCarrotIn1stBox:
 else:
     print(f"{p2Name} won this game.")
 print("Thanks for playing! Goodbye.")
+"""
+1. The playerNames only displays a portion of their names. In this case, 11 characters.
+2. The lines of the boxes are not in line.
+3. Player 2 can see the inside of the box.
+4. The loop continues.
+"""
