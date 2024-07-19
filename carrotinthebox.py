@@ -1,5 +1,5 @@
 import random
-
+# Explain the rules of the game
 print("""
 Welcome to carrot in the box game.
 This game is for 2 players.
@@ -9,10 +9,11 @@ Player 1 then tells the player 2 whether or not there is a carrot in their box.
 Player 2 makes a decision whether to make a swap or to keep their box.
 The result is revealed when player 2 says YES to swap and NO to keep the box.
 """)
-
+# Names should be omitted as they are not necessary
 p1Name: str = input("Player 1 name: ")
 p2Name: str = input("Player 2 name: ")
-playerNames = p1Name[:11].center(11) + '    ' + p2Name[:11].center(11)
+# Format the 2 players names when displaying the box
+playerNames = p1Name[:11].center(11) + '     ' + p2Name[:11].center(11)
 print("""Here are your boxes
   __________     __________
  /         /|   /         /|
@@ -21,22 +22,25 @@ print("""Here are your boxes
 |   BOX   | /  |   BOX   | /
 +---------+/   +---------+
 """)
-print()
 print(playerNames)
 print()
+
 print(f"{p1Name}, you have the RED ox in front of you.")
 print(f"{p2Name}, you have the BLUE ox in front of you.")
 print()
 print(f"{p1Name}, time to look at the box.")
 print(f"{p2Name}, time to close your eyes.")
+
 input(f"Press Enter when {p2Name} has closed their eyes")
 print()
 print("The content of RED box is revealed.....")
-if random.randint(1,2) == 1:
-    haveCarrot: bool = True
+# Where the carrot is placed using random
+if random.randint(0,1) == 1:
+    isCarrotIn1stBox: bool = True
 else:
-    haveCarrot = False
-if haveCarrot:
+    isCarrotIn1stBox = False
+# haveCarrot is placed at the first box, in this case is the red box
+if isCarrotIn1stBox:
     print("""
        ___VV____
       |   VV    |
@@ -63,6 +67,7 @@ else:
     (no carrot!)""")
     print(playerNames)
 input("Press Enter to continue....")
+# To hide the content of the red box to prevent cheating
 print("\n" * 100)
 print(f"{p1Name}, please tell {p2Name} to open their eyes.")
 print(f"""{p1Name}, tell {p2Name} either of the following sentences:
@@ -70,6 +75,7 @@ print(f"""{p1Name}, tell {p2Name} either of the following sentences:
 2. There is no carrot in my box.""")
 input("Press Enter to continue....")
 print(f"{p2Name}, please make a choice of swapping the boxes with {p1Name} (YES/NO)")
+# Using if not would save the continue in the else statement
 while True:
     response = input("> ").upper()
     if response.startswith("Y") or response.startswith("N"):
@@ -77,12 +83,20 @@ while True:
     else:
         print("Please type YES or NO to continue the game.")
         continue
+
 firstBox: str = "RED"
 secondBox: str = "BLUE"
+# Where the swapping happens if Y is the input
 if response.startswith("Y"):
-    haveCarrot = not haveCarrot
+    # Where the actual carrot is swapped
+    # IMPORTANT!!!
+    isCarrotIn1stBox = not isCarrotIn1stBox
+    # Just change the name tag on the box
     firstBox, secondBox = secondBox, firstBox
     print("The boxes are swapped.")
+# Format the box label with format strings
+# Using this is easier to design the box than using f strings
+# The out of lines are to line with the rest when running the program
 print("""
   __________     __________
  /         /|   /         /|
@@ -94,7 +108,7 @@ print("""
 print(playerNames)
 input("Press Enter to reveal the result.....")
 print()
-if haveCarrot:
+if isCarrotIn1stBox:
     print('''
        ___VV____      _________
       |   VV    |    |         |
@@ -117,7 +131,7 @@ else:
     |   BOX   | /  |   BOX   | /
     +---------+/   +---------+/'''.format(firstBox, secondBox))
 print(playerNames)
-if haveCarrot:
+if isCarrotIn1stBox:
     print(f"{p1Name} won this game.")
 else:
     print(f"{p2Name} won this game.")
