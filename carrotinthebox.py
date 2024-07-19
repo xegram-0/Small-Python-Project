@@ -35,7 +35,7 @@ input(f"Press Enter when {p2Name} has closed their eyes")
 print()
 print("The content of RED box is revealed.....")
 # Where the carrot is placed using random
-if random.randint(0,1) == 1:
+if random.randint(0, 1) == 1:
     isCarrotIn1stBox: bool = True
 else:
     isCarrotIn1stBox = False
@@ -75,7 +75,7 @@ print(f"""{p1Name}, tell {p2Name} either of the following sentences:
 2. There is no carrot in my box.""")
 input("Press Enter to continue....")
 print(f"{p2Name}, please make a choice of swapping the boxes with {p1Name} (YES/NO)")
-# Using if not would save the continue in the else statement
+# Using 'if not' means no need to use 'continue' in the else statement
 while True:
     response = input("> ").upper()
     if response.startswith("Y") or response.startswith("N"):
@@ -103,8 +103,7 @@ print("""
 +---------+ |  +---------+ |
 |   {}  | |  |   {}   | |
 |   BOX   | /  |   BOX   | /
-+---------+/   +---------+/""".format(firstBox, secondBox)
-)
++---------+/   +---------+/""".format(firstBox, secondBox))
 print(playerNames)
 input("Press Enter to reveal the result.....")
 print()
