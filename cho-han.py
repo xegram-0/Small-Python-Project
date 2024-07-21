@@ -82,3 +82,12 @@ while True:
         print("Fate has not been kind to you.")
         print("Leave and maybe next time you can win.")
         sys.exit()
+
+"""
+1. By changing the value of the 'purse' variable.
+2. If their bet is larger than what in their purse, they make an invalid bet.
+3. Take the total of 2 dices and module it with 2, that would lead to whether the sum is odd or even.
+4. The dices would produce 1 each since the randint is restricted to 1.
+5. The question is quite unclear: if 'pot // 10' to '0' then no; if 'pot // 0' then divided by 0.
+6. Player would bet even they run out of money.
+"""
