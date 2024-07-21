@@ -1,6 +1,6 @@
 import random
 import sys
-
+# Just the way to express the cutural game
 JAPANESE_NUMBERS = {1: 'ICHI', 2: 'NI', 3: 'SAN', 4: 'SHI', 5: 'GO', 6: 'ROKU'}
 
 print("Let's start playing CHO HAN game.")
@@ -9,8 +9,10 @@ print("""Rules:
     You as the player must guess 
     whether the total of 2 dices will be
     either even (CHO) or odd (HAN).""")
-
+# Input a valid amount of coins
 while True:
+    # For some reasons, specific about the type of a varible
+    # and change it make the ide question a lot
     print("How many coins do you have?")
     yourPurse = input("> ")
     if not yourPurse.isdecimal():
