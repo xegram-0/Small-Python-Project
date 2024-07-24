@@ -12,6 +12,7 @@ PLACES = ['Space', 'Womb', 'Anal', 'House', 'Library', 'Ship',
 WHEN = ['Soon', 'Tomorrow', 'Later this year', 'LIVE NOW', '100 years ago', 'next 20 minutes']
 
 
+
 def main():
     while True:
         response = input("Enter number of clickbait headlines to generate: ")
@@ -113,3 +114,9 @@ def generateJobAutomatedHeadline():
 
 if __name__ == "__main__":
     main()
+
+"""
+1. NameError: name 'numberOfHeadlines' is not defined
+2. TypeError: 'str' object cannot be interpreted as an integer
+3. IndexError: Cannot choose from an empty sequence
+"""
