@@ -38,7 +38,9 @@ def main():
     collatzList: list = collatzSequence(startingNumber)
     print(collatzList)
     print(f"There are {len(collatzList)} numbers in this sequence.")
-
+# print() has flush = true would help slow down the output of the console with sleep()
+# The codes in the book are much shorter and efficient than mine
+# Especially the loop and not using list variable.
 
 if __name__ == "__main__":
     main()
