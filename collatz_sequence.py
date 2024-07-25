@@ -46,5 +46,5 @@ if __name__ == "__main__":
 1. 6 numbers.
 2. 27 numbers.
 3. Yes, since n//2 would result in even numbers that are the power of 2.
-4. My program does not allow that but with the book program, it seems to run endlessly.
+4. No since response == 0 checks for 0 value input.
 """
