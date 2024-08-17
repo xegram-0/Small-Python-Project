@@ -1,15 +1,16 @@
+import sys
 
+original_stdout = sys.stdout
 
 def main():
-    with open("diamondText.txt", 'a') as file:
-
+    # https://www.geeksforgeeks.org/ways-to-save-python-terminal-output-to-a-text-file/
+    with open("diamondText.txt", 'w') as file:
+        sys.stdout = file
         for diamondSize in range(0, 10):
-            file.write(str(displayOutlineDiamond(diamondSize)))
-            #print()
-            file.write("\n")
-            file.write(str(displayFilledDiamond(diamondSize)))
-            #print()
-            file.write("\n")
+            displayOutlineDiamond(diamondSize)
+            print()
+            displayFilledDiamond(diamondSize)
+            print()
 
 def displayOutlineDiamond(size):
     for i in range(size):
