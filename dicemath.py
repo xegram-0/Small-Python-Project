@@ -14,8 +14,51 @@ PENALTY = 1
 
 assert MAX_DICE <= 14
 
-
-
+D1 = (['+---------+'
+       '|         |'
+       '|    0    |'
+       '|         |'
+       '+---------+'], 1)
+D2a = (['+---------+'
+       ' | 0       |'
+       ' |         |'
+       ' |       0 |'
+       ' +---------+'], 2)
+D2b = (['+---------+'
+       ' |       0 |'
+       ' |         |'
+       ' | 0       |'
+       ' +---------+'], 2)
+D3a = (['+---------+'
+       ' | 0       |'
+       ' |    0    |'
+       ' |       0 |'
+       ' +---------+'], 3)
+D3b = (['+---------+'
+       ' |       0 |'
+       ' |    0    |'
+       ' | 0       |'
+       ' +---------+'], 3)
+D4 = (['+---------+'
+       ' | 0     0 |'
+       ' |         |'
+       ' | 0     0 |'
+       ' +---------+'], 4)
+D5 = (['+---------+'
+       ' | 0     0 |'
+       ' |    0    |'
+       ' | 0     0 |'
+       ' +---------+'], 5)
+D6a = (['+---------+'
+       ' | 0     0 |'
+       ' | 0     0 |'
+       ' | 0     0 |'
+       ' +---------+'], 6)
+D6b = (['+---------+'
+       ' | 0  0  0 |'
+       ' |         |'
+       ' | 0  0  0 |'
+       ' +---------+'], 6)
 ALL_DICE = [D1, D2a, D2b, D3a, D3b, D4, D5, D6a, D6b]
 correctAnswers = 0
 incorrectAnswers = 0
@@ -46,4 +89,41 @@ while time.time() < startTime + QUIZ_DURATION:
             bottomRightY = top + DICE_HEIGHT
 
             overlaps = False
-            for preDieLeft,
+            for prevDieLeft, prevDieTop in topLeftDiceCorners:
+                prevDieRight = prevDieLeft + DICE_WIDTH
+                prevDieBottom = prevDieTop + DICE_HEIGHT
+
+                for cornerX, cornerY in ((topLeftX, topLeftY),
+                                         (topRightX, topRightY),
+                                         (bottomLeftX, bottomLeftY),
+                                         (bottomRightX, bottomRightY)):
+                    if (prevDieLeft <= cornerX < prevDieRight
+                            and prevDieTop <= cornerY < prevDieBottom):
+                                overlaps = True
+            if not overlaps:
+                topLeftDiceCorners.append((left, top))
+                break
+
+    canvas = {}
+    for i, (dieLeft, dieTop) in enumerate(topLeftDiceCorners):
+        dieFace = diceFaces[i]
+        for dx in range(DICE_WIDTH):
+            for dy in range(DICE_HEIGHT):
+                canvasX = dieLeft + dx
+                canvasY = dieTop + dy
+                canvas[(canvasX, canvasY)] = dieFace[dy][dx]
+    for cy in range(CANVAS_HEIGHT):
+        for cx in range(CANVAS_WIDTH):
+            print(canvas.get((cx, cy), ' '), end='')
+        print()
+    response = input("Enter the sum: ").strip()
+    if response.isdecimal() and int(response) == sumAnswer:
+        correctAnswers += 1
+    else:
+        print("That is incorrect. The answer is "+ str(sumAnswer))
+        time.sleep(2)
+        incorrectAnswers += 1
+score = (correctAnswers * REWARD) - (incorrectAnswers * PENALTY)
+print(f"Correct {correctAnswers}"
+      f"Incorrect {incorrectAnswers}"
+      f"Score {score}")
