@@ -18,7 +18,7 @@ def main():
 
             hDigits = sevseg.getSevSegStr(hours, 2) # this is in a list
             #print(hDigits)
-            hTop, hMid, hBot = hDigits.splitlines() # which is why can be seperated in 3 parts by \n
+            hTop, hMid, hBot = hDigits.splitlines() # which is why can be seperated in 3 parts by \n 
 
             mDigits = sevseg.getSevSegStr(minutes, 2)
             mTop, mMid, mBot = mDigits.splitlines()
