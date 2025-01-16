@@ -16,9 +16,9 @@ def main():
             minutes = str(currentTime.tm_min)
             seconds = str(currentTime.tm_sec)
 
-            hDigits = sevseg.getSevSegStr(hours, 2)
+            hDigits = sevseg.getSevSegStr(hours, 2) # this is in a list
             #print(hDigits)
-            hTop, hMid, hBot = hDigits.splitlines()
+            hTop, hMid, hBot = hDigits.splitlines() # which is why can be seperated in 3 parts by \n
 
             mDigits = sevseg.getSevSegStr(minutes, 2)
             mTop, mMid, mBot = mDigits.splitlines()
@@ -32,6 +32,7 @@ def main():
             print()
             print("Ctr C to exit")
             
+            # act as a delay
             while True:
                 time.sleep(0.01)
                 if time.localtime().tm_sec != currentTime.tm_sec:
